@@ -9,21 +9,31 @@ h5 {
     padding-top: 3.5%;
 }
 
-.rate-container {
-    margin-top: 20px;
-    border-top: 2px solid purple;
+
+.edit-icon {
+    padding-left: 2%;
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    font-size: 1.8rem;
+    color: black;
 }
 
 .rate-container .fa-star {
-    font-size: 1.8rem;
     cursor: pointer;
 }
+
 
 .orange {
     color: orange;
 }
 
-.purple {
-color: purple
-}
   
+.green {
+    color: green
+}
+
+#customRange1 {
+    max-width: 35%;
+}
