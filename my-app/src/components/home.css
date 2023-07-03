@@ -1,5 +1,29 @@
 .Home {
     margin-left: auto;
     margin-right: auto;
-    width: 18%; /* Adjust the width as per your preference */
+    width: 25%; /* Adjust the width as per your preference */
+    padding-bottom: 5%;
 }
+
+h5 {
+    padding-top: 3.5%;
+}
+
+.rate-container {
+    margin-top: 20px;
+    border-top: 2px solid purple;
+}
+
+.rate-container .fa-star {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.orange {
+    color: orange;
+}
+
+.purple {
+color: purple
+}
+  
