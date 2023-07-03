@@ -4,10 +4,18 @@ import Navbar from './components/navbar';
 
 function App() {
   return (
+
     <div className="App">
-      <Navbar/>
-      <header className="App-header">
-      </header>
+
+      <div className="Navbar">
+        <Navbar/>
+      </div>
+
+      <div className="Body">
+        <Home/>
+      </div>
+
+      
     </div>
   );
 }
