@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDollar } from '@fortawesome/free-solid-svg-icons';
+import foodOptions from './foodTypes.js'
 import './home.css';
 
 function Home() {
@@ -51,12 +52,19 @@ function Home() {
         }
     }
 
-    const [sliderValue, setSliderValue] = useState(50);
+    const [sliderValue, setSliderValue] = useState(0);
 
     const handleSliderChange = (event) => {
       const value = parseInt(event.target.value);
       setSliderValue(value);
     };
+
+    const options = foodOptions;
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+    }; 
 
     return (
         <React.Fragment>
@@ -116,11 +124,20 @@ function Home() {
                         </div>
                     }
                 </div>
-                <h5>Distance: {sliderValue} miles</h5>
+                <h5>Distance: {sliderValue} miles </h5>
                 {/* Setting the max distance possible */}
                 <input type="range" class="form-range" min="0" max="100" step="5" 
                     id="customRange1"  onChange={handleSliderChange}/>
                 <h5>Type:</h5>
+                <select value={selectedOption} onChange={handleOptionChange}
+                    className="form-select" aria-label="Select Option">
+                    <option value=""></option>
+                        {options.map((option, index) => (
+                    <option key={index} value={option}>
+                        {option}
+                    </option>
+                    ))}
+                </select>
              </div>
              <div className="d-flex justify-content-center align-items-center">
                 <button className="btn btn-primary btn-lg">generate random restaurant</button>
