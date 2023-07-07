@@ -1,32 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
 
-  const express = require('express')
-  const app = express()
-  const port = 3001
-  const cors = require('cors');
-  const yelp = require('yelp-fusion');
-  const apiKey = 'YOUR-API-KEY';
-  const client = yelp.client(apiKey);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.yelp.com/v3/businesses/search', {
-          headers: {
-            ContentType: 'application/json',
-            Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-          },
-          params: {
-            term: 'restaurants',
-            location: 'San Francisco',
-            limit: 50,
-          },
-        });
-        setRestaurants(response.data.businesses);
+        const response = await fetch('http://localhost:8000/get_restaurants?latitude=37.7749&longitude=-122.4194');
+        const data = await response.json();
+        setRestaurants(data);
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +19,7 @@ const RestaurantList = () => {
 
   return (
     <div>
+      <h1>Restaurant List</h1>
       <ul>
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>{restaurant.name}</li>

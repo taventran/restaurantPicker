@@ -4,6 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDollar } from '@fortawesome/free-solid-svg-icons';
 import foodOptions from './foodTypes.js'
+import RestaurantList from './yelpAPI.js';
 import './home.css';
 
 function Home() {
