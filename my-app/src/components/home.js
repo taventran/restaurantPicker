@@ -209,7 +209,8 @@ function Home() {
                     onClick={generateRandomRestaurant}>generate random restaurant</button>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-                <h5>{restaurant}</h5>
+                {/*<img src="https://s3-media3.fl.yelpcdn.com/bphoto/HvjJiZPp06kg9LORXF9lng/m.jpg" */}
+                <h1>{restaurant}</h1>
             </div>
         </React.Fragment>
     )

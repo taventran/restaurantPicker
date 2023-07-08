@@ -5,6 +5,7 @@
     padding-bottom: 5%;
 }
 
+
 h5 {
     padding-top: 3.5%;
 }
@@ -23,7 +24,6 @@ h5 {
 .rate-container .fa-star {
     cursor: pointer;
 }
-
 
 .orange {
     color: orange;
