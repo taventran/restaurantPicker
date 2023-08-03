@@ -120,7 +120,6 @@ function Home() {
       };
 
     const generateRandomRestaurant = () => {
-        // Perform the necessary action here
         console.log('Generating random restaurant...');
         console.log('Rate Highlighted:', rateHighlighted);
         console.log('Dollar Sign Clicked:', dollarSignClicked);
@@ -209,7 +208,6 @@ function Home() {
                     onClick={generateRandomRestaurant}>generate random restaurant</button>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-                {/*<img src="https://s3-media3.fl.yelpcdn.com/bphoto/HvjJiZPp06kg9LORXF9lng/m.jpg" */}
                 <h1>{restaurant}</h1>
             </div>
         </React.Fragment>
