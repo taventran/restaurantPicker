@@ -5,6 +5,11 @@
     padding-bottom: 5%;
 }
 
+img {
+    width: 200px;
+    height: auto;
+}
+
 
 h5 {
     padding-top: 3.5%;

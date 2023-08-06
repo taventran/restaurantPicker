@@ -192,7 +192,9 @@ function Home() {
                 {/* Setting the max distance possible */}
                 <input type="range" class="form-range" min="0" max="25" step="1" 
                     id="customRange1"  onChange={handleSliderChange}/>
-                <h5>Type:</h5>
+                {/* Yelp fusion api categories filter does not work well
+                    enough for me to implement this functionality     */}
+                {/* <h5>Type:</h5>
                 <select value={selectedOption} onChange={handleOptionChange}
                     className="form-select" aria-label="Select Option">
                     <option value=""></option>
@@ -201,14 +203,20 @@ function Home() {
                         {option}
                     </option>
                     ))}
-                </select>
+                </select> */}
              </div>
              <div className="d-flex justify-content-center align-items-center">
                 <button className="btn btn-primary btn-lg"
                     onClick={generateRandomRestaurant}>generate random restaurant</button>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-                <h1>{restaurant}</h1>
+            {restaurant !== null &&
+                <div>
+                    <img src={restaurant[2]} alt="restaurant photo"/>
+                    <a href={restaurant[1]}>{restaurant[0]}</a>
+                    
+                </div>
+            }
             </div>
         </React.Fragment>
     )

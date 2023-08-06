@@ -14,7 +14,6 @@ def api_get_restaurants(request):
     headers = {
         'Authorization': f'Bearer {os.environ.get("YELP_API_KEY")}',
     }
-    location = request.GET.get('location', 'San Francisco') # Defaults to San Francisco
     latitude = request.GET.get('latitude', 29.7604)
     longitude = request.GET.get('longitude', -95.3698)
     price = request.GET.get('price', 2)
@@ -35,6 +34,7 @@ def api_get_restaurants(request):
     response = requests.get('https://api.yelp.com/v3/businesses/search', headers=headers, params=params)
     data = response.json()
 
+
     amountOfRestaurants = len(data['businesses'])
 
     if (amountOfRestaurants == 0):
@@ -45,7 +45,7 @@ def api_get_restaurants(request):
 
     restaurant = (data['businesses'][index])
 
-
-    return JsonResponse(restaurant['name'], safe=False)
+    info = [restaurant['name'], restaurant['url'], restaurant['image_url']]
+    return JsonResponse(info, safe=False)
 
 
