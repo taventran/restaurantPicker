@@ -2,14 +2,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 25%; /* Adjust the width as per your preference */
-    padding-bottom: 5%;
+    padding-bottom: 1%;
 }
-
-img {
-    width: 200px;
-    height: auto;
-}
-
 
 h5 {
     padding-top: 3.5%;
@@ -34,6 +28,14 @@ h5 {
     color: orange;
 }
 
+.pickedRest {
+    text-align: center;
+    margin-top: -2%;
+}
+
+.generateButton {
+    text-align: center;
+}
   
 .green {
     color: green
@@ -41,4 +43,12 @@ h5 {
 
 #customRange1 {
     max-width: 35%;
+}
+
+img {
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid black;
 }

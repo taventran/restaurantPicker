@@ -205,16 +205,15 @@ function Home() {
                     ))}
                 </select> */}
              </div>
-             <div className="d-flex justify-content-center align-items-center">
-                <button className="btn btn-primary btn-lg"
+             <div className="generateButton">
+                <button className="btn btn-primary btn-lg mb-2"
                     onClick={generateRandomRestaurant}>generate random restaurant</button>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div>
             {restaurant !== null &&
-                <div>
+                <div className='pickedRest'>
+                    <h5><a href={restaurant[1]}>{restaurant[0]}</a></h5>
                     <img src={restaurant[2]} alt="restaurant photo"/>
-                    <a href={restaurant[1]}>{restaurant[0]}</a>
-                    
                 </div>
             }
             </div>
