@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_dp(^*4m$@d2^v@&_tem&rndm&t5^mc#eh8qwvk!@8fjgo@^$p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://foodieselector-backend.azurewebsites.net/"]
 
 
 # Application definition
@@ -55,7 +55,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://localhost:3000',
-    'https://foodieselector.netlify.app/',
+    'https://foodieselector.netlify.app',
 ]
 
 ROOT_URLCONF = 'eateryPickerBackend.urls'
@@ -124,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
