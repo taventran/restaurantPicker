@@ -106,7 +106,7 @@ function Home() {
         const fetchData = async () => {
           try {
             const response = await fetch(
-              `https://foodieselector-backend.azurewebsites.net/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
+              `https://food-picker-demo.azurewebsites.net/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
             );
             const data = await response.json();
             setRestaurant(data);

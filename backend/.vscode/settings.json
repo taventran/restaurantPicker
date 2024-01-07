@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/98afc868-7d4e-4513-af92-76cd66acba13/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/food-picker-demo",
+    "appService.deploySubpath": "."
+}

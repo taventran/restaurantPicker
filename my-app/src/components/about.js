@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.css'
-const About = () => {
 
+const About = () => {
     return (
       <React.Fragment>
         <div className="info">
@@ -14,7 +14,6 @@ const About = () => {
         </div>
       </React.Fragment>
     );
-
 }
 
 
