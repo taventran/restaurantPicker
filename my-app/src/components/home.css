@@ -40,9 +40,15 @@ h5 {
 }
 
 .rate-container {
+    text-align: center;
+    margin: auto;
+    width: 75%;
     cursor: pointer;
 }
 .dollar-container {
+    text-align: center;
+    margin: auto;
+    width: 75%;
     cursor: pointer;
 }
 
@@ -72,9 +78,18 @@ button {
     max-width: 35%;
 }
 
-img {
-    width: 12%;
-    object-fit: cover;
-    border-radius: 5%;
-    border: 100% solid black;
+
+
+@media (min-width: 650px) {
+    img {
+        height: auto;
+        max-width: 15%;
+    }
+}
+
+@media (max-width: 650px) {
+    img {
+        height: auto;
+        max-width: 50%;
+    }
 }

@@ -126,8 +126,6 @@ function Home() {
         console.log('Rate Highlighted:', rateHighlighted);
         console.log('Dollar Sign Clicked:', dollarSignClicked);
         console.log('Slider Value:', sliderValue);
-        
-
         setRestaurant(RestaurantList(latitude, longitude, rateHighlighted, dollarSignClicked, parseInt(sliderValue), selectedOption));
     };
 
