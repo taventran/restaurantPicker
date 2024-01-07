@@ -59,6 +59,10 @@ h5 {
     text-align: center;
 }
   
+button {
+    cursor: pointer;
+}
+
 .green {
     color: green
 }
