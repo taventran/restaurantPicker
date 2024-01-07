@@ -61,6 +61,7 @@ h5 {
   
 button {
     cursor: pointer;
+    z-index: 999;
 }
 
 .green {
