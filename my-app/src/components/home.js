@@ -260,7 +260,7 @@ function Home() {
         <div className="generateButton">
           <button
             className="btn btn-primary btn-lg mb-2"
-            onClick={generateRandomRestaurant}
+            onPointerEnter={generateRandomRestaurant}
           >
             generate random restaurant
           </button>
