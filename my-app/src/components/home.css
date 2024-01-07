@@ -1,7 +1,7 @@
 .Home {
     margin-left: auto;
     margin-right: auto;
-    width: 25%; /* Adjust the width as per your preference */
+    align-content: center;
     padding-bottom: 1%;
 }
 
@@ -17,10 +17,32 @@ h5 {
 
 .edit-icon:hover {
     font-size: 1.8rem;
+    width: 50%;
     color: black;
 }
 
-.rate-container .fa-star {
+.Rating {
+    text-align: center;
+    margin: auto;
+    width: 75%
+}
+
+.Price {
+    text-align: center;
+    margin: auto;
+    width: 75%
+}
+
+.Distance {
+    text-align: center;
+    margin: auto;
+    width: 75%;
+}
+
+.rate-container {
+    cursor: pointer;
+}
+.dollar-container {
     cursor: pointer;
 }
 
@@ -46,9 +68,8 @@ h5 {
 }
 
 img {
-    width:  200px;
-    height: 200px;
+    width: 12%;
     object-fit: cover;
-    border-radius: 10px;
-    border: 5px solid black;
+    border-radius: 5%;
+    border: 100% solid black;
 }
