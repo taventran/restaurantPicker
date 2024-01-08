@@ -105,11 +105,21 @@ function Home() {
       
         const fetchData = async () => {
           try {
-            const response = await fetch(
-              `https://food-picker-demo.azurewebsites.net/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
-            );
-            const data = await response.json();
-            setRestaurant(data);
+            if (latitude === null|| longitude === null) {
+                const response = await fetch(
+                `https://food-picker-demo.azurewebsites.net/get_restaurants?rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
+                );
+                const data = await response.json();
+                setRestaurant(data);
+            }
+            else {
+                const response = await fetch(
+                `https://food-picker-demo.azurewebsites.net/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
+                );
+                const data = await response.json();
+                setRestaurant(data);
+            }
+
           } catch (error) {
             console.error(error);
           }
@@ -126,6 +136,7 @@ function Home() {
         console.log('Rate Highlighted:', rateHighlighted);
         console.log('Dollar Sign Clicked:', dollarSignClicked);
         console.log('Slider Value:', sliderValue);
+
         setRestaurant(RestaurantList(latitude, longitude, rateHighlighted, dollarSignClicked, parseInt(sliderValue), selectedOption));
     };
 
