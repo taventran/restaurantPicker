@@ -105,9 +105,21 @@ function Home() {
       
         const fetchData = async () => {
           try {
-            const response = await fetch(`http://localhost:8000/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`);
-            const data = await response.json();
-            setRestaurant(data);
+            if (latitude === null|| longitude === null) {
+                const response = await fetch(
+                `https://food-picker-demo.azurewebsites.net/get_restaurants?rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
+                );
+                const data = await response.json();
+                setRestaurant(data);
+            }
+            else {
+                const response = await fetch(
+                `https://food-picker-demo.azurewebsites.net/get_restaurants?latitude=${latitude}&longitude=${longitude}&rating=${rating}&price=${price}&radius=${meters}&categories=${selectedOption}`
+                );
+                const data = await response.json();
+                setRestaurant(data);
+            }
+
           } catch (error) {
             console.error(error);
           }
@@ -124,77 +136,125 @@ function Home() {
         console.log('Rate Highlighted:', rateHighlighted);
         console.log('Dollar Sign Clicked:', dollarSignClicked);
         console.log('Slider Value:', sliderValue);
-        
 
         setRestaurant(RestaurantList(latitude, longitude, rateHighlighted, dollarSignClicked, parseInt(sliderValue), selectedOption));
     };
 
 
     return (
-        <React.Fragment>
-            <div className="Home">
-                <div className="Rating">
-                    <h5>Rating:</h5>
-                    {showEditRating === true &&
-                        /* Editing restaurant rating criteria */
-                        <div className="rate-container">
-                        {
-                            [...Array(5)].map( (e, i)=> {
-                                return <FontAwesomeIcon key={i} icon={faStar} className={rateHighlighted > i - 1 ? 'orange':''}
-                                onMouseEnter={highlightRate(i)}
-                                onMouseLeave={highlightRate(-1)}
-                                onClick={rateClicked(i)}
-                            />
-                            }) 
-                        }
-                        </div>
-                    }
-                    {showEditRating === false &&
-                        /* Show minimum rating requirement */
-                        <div>
-                            <FontAwesomeIcon icon={faStar} className={ratingClicked > 0 ? 'orange':''}/>
-                            <FontAwesomeIcon icon={faStar} className={ratingClicked > 1 ? 'orange':''}/>
-                            <FontAwesomeIcon icon={faStar} className={ratingClicked > 2 ? 'orange':''}/>
-                            <FontAwesomeIcon icon={faStar} className={ratingClicked > 3 ? 'orange':''}/>
-                            <FontAwesomeIcon icon={faStar} className={ratingClicked > 4 ? 'orange':''}/>
-                            <FontAwesomeIcon icon={faEdit} className="edit-icon" onClick={enableEditRating}/>
-                        </div>
-                    }
-                </div>
-                <div className="Price">
-                    <h5>Price:</h5>
-                    {showEditDollar === true &&
-                        /* Editing max dollar range criteria */
-                    <div className="dollar-container">
-                        {
-                            [...Array(4)].map( (e, i)=> {
-                                return <FontAwesomeIcon key={i} icon={faDollar} className={dollarHighlighted > i - 1 ? 'green':''}
-                                onMouseEnter={highlightDollar(i)}
-                                onMouseLeave={highlightDollar(-1)}
-                                onClick={dollarClicked(i)}
-                            />
-                            }) 
-                        }
-                    </div>
-                    }
-                    {showEditDollar === false &&
-                        /* Show max dollar range requirement */
-                        <div>
-                            <FontAwesomeIcon icon={faDollar} className={dollarSignClicked > 0 ? 'green':''}/>
-                            <FontAwesomeIcon icon={faDollar} className={dollarSignClicked > 1 ? 'green':''}/>
-                            <FontAwesomeIcon icon={faDollar} className={dollarSignClicked > 2 ? 'green':''}/>
-                            <FontAwesomeIcon icon={faDollar} className={dollarSignClicked > 3 ? 'green':''}/>
-                            <FontAwesomeIcon icon={faEdit} className="edit-icon" onClick={enableEditDollarSign}/>
-                        </div>
-                    }
-                </div>
-                <h5>Distance: {sliderValue} miles </h5>
-                {/* Setting the max distance possible */}
-                <input type="range" class="form-range" min="0" max="25" step="1" 
-                    id="customRange1"  onChange={handleSliderChange}/>
-                {/* Yelp fusion api categories filter does not work well
+      <React.Fragment>
+        <div className="Home">
+          <div className="Rating">
+            <h5>Rating:</h5>
+            {showEditRating === true && (
+              /* Editing restaurant rating criteria */
+              <div className="rate-container">
+                {[...Array(5)].map((e, i) => {
+                  return (
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={faStar}
+                      className={rateHighlighted > i - 1 ? "orange" : ""}
+                      onMouseEnter={highlightRate(i)}
+                      onMouseLeave={highlightRate(-1)}
+                      onClick={rateClicked(i)}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            {showEditRating === false && (
+              /* Show minimum rating requirement */
+              <div>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={ratingClicked > 0 ? "orange" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={ratingClicked > 1 ? "orange" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={ratingClicked > 2 ? "orange" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={ratingClicked > 3 ? "orange" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={ratingClicked > 4 ? "orange" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faEdit}
+                  className="edit-icon"
+                  onClick={enableEditRating}
+                />
+              </div>
+            )}
+          </div>
+          <div className="Price">
+            <h5>Price:</h5>
+            {showEditDollar === true && (
+              /* Editing max dollar range criteria */
+              <div className="dollar-container">
+                {[...Array(4)].map((e, i) => {
+                  return (
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={faDollar}
+                      className={dollarHighlighted > i - 1 ? "green" : ""}
+                      onMouseEnter={highlightDollar(i)}
+                      onMouseLeave={highlightDollar(-1)}
+                      onClick={dollarClicked(i)}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            {showEditDollar === false && (
+              /* Show max dollar range requirement */
+              <div>
+                <FontAwesomeIcon
+                  icon={faDollar}
+                  className={dollarSignClicked > 0 ? "green" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faDollar}
+                  className={dollarSignClicked > 1 ? "green" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faDollar}
+                  className={dollarSignClicked > 2 ? "green" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faDollar}
+                  className={dollarSignClicked > 3 ? "green" : ""}
+                />
+                <FontAwesomeIcon
+                  icon={faEdit}
+                  className="edit-icon"
+                  onClick={enableEditDollarSign}
+                />
+              </div>
+            )}
+          </div>
+          <div className="Distance">
+            <h5>Distance: {sliderValue} miles </h5>
+            {/* Setting the max distance possible */}
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="25"
+              step="1"
+              id="customRange1"
+              onChange={handleSliderChange}
+            />
+            {/* Yelp fusion api categories filter does not work well
                     enough for me to implement this functionality     */}
-                {/* <h5>Type:</h5>
+            {/* <h5>Type:</h5>
                 <select value={selectedOption} onChange={handleOptionChange}
                     className="form-select" aria-label="Select Option">
                     <option value=""></option>
@@ -204,21 +264,28 @@ function Home() {
                     </option>
                     ))}
                 </select> */}
-             </div>
-             <div className="generateButton">
-                <button className="btn btn-primary btn-lg mb-2"
-                    onClick={generateRandomRestaurant}>generate random restaurant</button>
+          </div>
+        </div>
+        <div className="generateButton">
+          <button
+            className="btn btn-primary btn-lg mb-2"
+            onPointerEnter={generateRandomRestaurant}
+          >
+            generate random restaurant
+          </button>
+        </div>
+        <div>
+          {restaurant !== null && (
+            <div className="pickedRest">
+              <h5>
+                <a href={restaurant[1]}>{restaurant[0]}</a>
+              </h5>
+              <img src={restaurant[2]} alt="restaurant photo" />
             </div>
-            <div>
-            {restaurant !== null &&
-                <div className='pickedRest'>
-                    <h5><a href={restaurant[1]}>{restaurant[0]}</a></h5>
-                    <img src={restaurant[2]} alt="restaurant photo"/>
-                </div>
-            }
-            </div>
-        </React.Fragment>
-    )
+          )}
+        </div>
+      </React.Fragment>
+    );
 
 }
 
