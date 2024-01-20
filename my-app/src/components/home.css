@@ -24,13 +24,15 @@ h5 {
 .Rating {
     text-align: center;
     margin: auto;
-    width: 75%
+    width: 75%;
+    cursor: pointer;
 }
 
 .Price {
     text-align: center;
     margin: auto;
-    width: 75%
+    width: 75%;
+    cursor: pointer;
 }
 
 .Distance {
@@ -69,6 +71,7 @@ button {
     cursor: pointer;
     z-index: 999;
 }
+
 
 .green {
     color: green

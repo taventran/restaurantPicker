@@ -41,11 +41,11 @@ function Home() {
 
     function enableEditRating() {
         if (showEditRating === false) {
-            setShowEditRating(true)
+            setShowEditRating(true);
         }
         else {
-            setShowEditRating(false)
-        }
+          setShowEditRating(false);
+        }    
     }
 
     const [ dollarHighlighted, setDollarHighlighted ] = useState(-1);
@@ -132,12 +132,19 @@ function Home() {
       };
 
     const generateRandomRestaurant = () => {
+      if (sliderValue === 0 || dollarHighlighted === -1 || rateHighlighted === -1) {
+        alert("Must input something for every field!");
+      }
+      else {
+        if(longitude  === null) {
+          alert("Location not on. Defaulting to Houston....");
+        }
         console.log('Generating random restaurant...');
         console.log('Rate Highlighted:', rateHighlighted);
         console.log('Dollar Sign Clicked:', dollarSignClicked);
         console.log('Slider Value:', sliderValue);
-
         setRestaurant(RestaurantList(latitude, longitude, rateHighlighted, dollarSignClicked, parseInt(sliderValue), selectedOption));
+      }
     };
 
 
@@ -169,27 +176,25 @@ function Home() {
                 <FontAwesomeIcon
                   icon={faStar}
                   className={ratingClicked > 0 ? "orange" : ""}
-                />
+                  onMouseDown={enableEditRating} />
                 <FontAwesomeIcon
                   icon={faStar}
                   className={ratingClicked > 1 ? "orange" : ""}
-                />
+                  onMouseDown={enableEditRating}                />
                 <FontAwesomeIcon
                   icon={faStar}
                   className={ratingClicked > 2 ? "orange" : ""}
+                  onMouseDown={enableEditRating}
                 />
                 <FontAwesomeIcon
                   icon={faStar}
                   className={ratingClicked > 3 ? "orange" : ""}
+                  onMouseDown={enableEditRating}
                 />
                 <FontAwesomeIcon
                   icon={faStar}
                   className={ratingClicked > 4 ? "orange" : ""}
-                />
-                <FontAwesomeIcon
-                  icon={faEdit}
-                  className="edit-icon"
-                  onClick={enableEditRating}
+                  onMouseDown={enableEditRating}
                 />
               </div>
             )}
@@ -219,23 +224,22 @@ function Home() {
                 <FontAwesomeIcon
                   icon={faDollar}
                   className={dollarSignClicked > 0 ? "green" : ""}
+                  onMouseDown={enableEditDollarSign}
                 />
                 <FontAwesomeIcon
                   icon={faDollar}
                   className={dollarSignClicked > 1 ? "green" : ""}
+                  onMouseDown={enableEditDollarSign}
                 />
                 <FontAwesomeIcon
                   icon={faDollar}
                   className={dollarSignClicked > 2 ? "green" : ""}
+                  onMouseDown={enableEditDollarSign}
                 />
                 <FontAwesomeIcon
                   icon={faDollar}
                   className={dollarSignClicked > 3 ? "green" : ""}
-                />
-                <FontAwesomeIcon
-                  icon={faEdit}
-                  className="edit-icon"
-                  onClick={enableEditDollarSign}
+                  onMouseDown={enableEditDollarSign}
                 />
               </div>
             )}
@@ -269,7 +273,7 @@ function Home() {
         <div className="generateButton">
           <button
             className="btn btn-primary btn-lg mb-2"
-            onPointerEnter={generateRandomRestaurant}
+            onMouseDown={generateRandomRestaurant}
           >
             generate random restaurant
           </button>
@@ -284,6 +288,7 @@ function Home() {
             </div>
           )}
         </div>
+
       </React.Fragment>
     );
 
