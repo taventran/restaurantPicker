@@ -5,6 +5,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDollar } from '@fortawesome/free-solid-svg-icons';
 import foodOptions from './foodTypes.js'
 // import RestaurantList from './yelpAPI.js';
+import Faq from './faq/faq.js';
 import './home.css';
 
 function Home() {
@@ -152,7 +153,7 @@ function Home() {
       <React.Fragment>
         <div className="Home">
           <div className="Rating">
-            <h5>Rating:</h5>
+            <h4>Rating:</h4>
             {showEditRating === true && (
               /* Editing restaurant rating criteria */
               <div className="rate-container">
@@ -200,7 +201,7 @@ function Home() {
             )}
           </div>
           <div className="Price">
-            <h5>Price:</h5>
+            <h4>Price:</h4>
             {showEditDollar === true && (
               /* Editing max dollar range criteria */
               <div className="dollar-container">
@@ -245,7 +246,7 @@ function Home() {
             )}
           </div>
           <div className="Distance">
-            <h5>Distance: {sliderValue} miles </h5>
+            <h4>Distance: {sliderValue} miles </h4>
             {/* Setting the max distance possible */}
             <input
               type="range"
@@ -258,7 +259,7 @@ function Home() {
             />
             {/* Yelp fusion api categories filter does not work well
                     enough for me to implement this functionality     */}
-            {/* <h5>Type:</h5>
+            {/* <h4>Type:</h4>
                 <select value={selectedOption} onChange={handleOptionChange}
                     className="form-select" aria-label="Select Option">
                     <option value=""></option>
@@ -269,8 +270,7 @@ function Home() {
                     ))}
                 </select> */}
           </div>
-        </div>
-        <div className="generateButton">
+          <div className="generateButton">
           <button
             className="btn btn-primary btn-lg mb-2"
             onMouseDown={generateRandomRestaurant}
@@ -281,14 +281,15 @@ function Home() {
         <div>
           {restaurant !== null && (
             <div className="pickedRest">
-              <h5>
+              <h4>
                 <a href={restaurant[1]}>{restaurant[0]}</a>
-              </h5>
+              </h4>
               <img src={restaurant[2]} alt="restaurant photo" />
             </div>
           )}
         </div>
-
+        </div>
+        <Faq className="faq"/>
       </React.Fragment>
     );
 
