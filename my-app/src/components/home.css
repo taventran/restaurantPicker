@@ -87,7 +87,7 @@ button {
 @media (min-width: 650px) {
     img {
         height: auto;
-        max-width: 15%;
+        max-width: 20%;
     }
     .Home {
         min-height: 100vh;

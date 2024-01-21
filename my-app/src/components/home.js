@@ -272,7 +272,7 @@ function Home() {
           </div>
           <div className="generateButton">
           <button
-            className="btn btn-primary btn-lg mb-2"
+            className="btn btn-dark btn-lg mb-2"
             onMouseDown={generateRandomRestaurant}
           >
             generate random restaurant

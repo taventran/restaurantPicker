@@ -1,13 +1,14 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css'
+import './navbar.css'
 import "bootstrap/js/src/collapse.js";
 
 const Navbar = () => {
     return (
       <React.Fragment>
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
+        <nav class="navbar navbar-custom navbar-expand-lg navbar-light  rounded" style={{backgroundColor: "#DDD0C8"}}>
           <div class="container-fluid">
-            <a class="navbar-brand" href="/">Restaurant Picker</a>
+            {/* <a class="navbar-brand" href="/">Restaurant Picker</a> */}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
