@@ -11,30 +11,6 @@ h4 {
 }
 
 
-.edit-icon {
-    padding-left: 2%;
-    cursor: pointer;
-}
-
-.edit-icon:hover {
-    font-size: 1.8rem;
-    width: 50%;
-    color: black;
-}
-
-.Rating {
-    text-align: center;
-    margin: auto;
-    width: 75%;
-    cursor: pointer;
-}
-
-.Price {
-    text-align: center;
-    margin: auto;
-    width: 75%;
-    cursor: pointer;
-}
 
 .Distance {
     padding-bottom: 4%;
@@ -92,7 +68,23 @@ button {
     .Home {
         min-height: 100vh;
     }
+
+    .Rating {
+        text-align: center;
+        margin: auto;
+        width: 75%;
+        cursor: pointer;
+    }
+    
+    .Price {
+        text-align: center;
+        margin: auto;
+        width: 75%;
+        cursor: pointer;
+    }
 }
+
+
 
 @media (max-width: 650px) {
     img {
@@ -103,6 +95,21 @@ button {
     .Home {
         min-height: 100vh;
     }
-
+    .Rating {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        cursor: pointer;
+        font-size: xx-large
+    }
+    
+    .Price {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        cursor: pointer;
+        font-size: xx-large;
+    }
+   
 
 }
