@@ -1,6 +1,5 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css'
-import './navbar.css'
 import "bootstrap/js/src/collapse.js";
 
 const Navbar = () => {

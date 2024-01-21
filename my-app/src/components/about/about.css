@@ -7,3 +7,7 @@
     width: 75%;
     padding-bottom: 1%;
 }
+
+a:link {
+    color: #323232;
+}

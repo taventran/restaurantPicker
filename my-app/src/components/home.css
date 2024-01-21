@@ -10,8 +10,9 @@ h4 {
     padding-top: 3.5%;
 }
 
-
-
+a:link {
+    color: #323232
+}
 .Distance {
     padding-bottom: 4%;
     text-align: center;
@@ -59,6 +60,12 @@ button {
     max-width: 35%;
 }
 
+
+img {
+    border-color: #323232;
+    border-style: groove;
+    border-width: 5px;
+}
 
 @media (min-width: 650px) {
     img {
@@ -111,5 +118,13 @@ button {
         font-size: xx-large;
     }
    
+    .Distance {
+        padding-bottom: 4%;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+    
+
 
 }

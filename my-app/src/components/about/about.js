@@ -17,7 +17,7 @@ const About = () => {
           <h2>Why did I use Django?</h2>
           <p>I wanted to better hide my API key and also I could 
             not fetch from their API directly with React 
-            due to some CORS error. Solution I found online was to make
+            due to some CORS settings. Solution I found online was to make
             a small backend to call Yelp's API and then serve it to
             the frontend which I did.</p>
         </div>
